@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    const Freelancer = sequelize.define("freelancer", {
+    const Freelancers = sequelize.define("Freelancer", {
         fullname: {
           type: DataTypes.STRING,
           allowNull: false
@@ -18,9 +18,9 @@ module.exports = (sequelize, DataTypes) => {
         },
         image: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
           }
      });
 
-     return Freelancer;
+     return Freelancers;
 }
