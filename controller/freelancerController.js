@@ -26,7 +26,21 @@ exports.createFreelancer = async (req, res) => {
 };
 
 exports.deleteFreelancer = (req, res) => {
-  const id = req.params.id
-  Freelancer.destroy({where: {id: id}});
-  res.status(200).redirect('/');
+  try {
+    const id = req.params.id
+    Freelancer.destroy({where: {id: id}});
+    res.status(200).redirect('/');
+  } catch (error) {
+    res.status(400).send(error);
+  }
+}
+
+exports.updateFreelancer = async (req, res) => {
+    try {
+      const id = req.params.id
+      await Freelancer.update({...req.body}, {where: {id: id}});
+      res.status(200).redirect('/');
+    } catch (error) {
+      res.status(400).send(error);
+    }
 }

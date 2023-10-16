@@ -69,15 +69,51 @@
                                             </button>
                                             <form action="/freelancers/<%= freelancers[i].id %>?_method=DELETE" method="post">
                                                 <button class="btn btn-danger" data-bs-dismiss="modal" onclick="return confirm('Are you sure?')">
-                                                    <i class="fas fa-xmark fa-fw"></i>
                                                     Delete
                                                 </button>
                                             </form>
-
-                                            <button class="btn btn-secondary" data-bs-dismiss="modal">
-                                                <i class="fas fa-xmark fa-fw"></i>
+                                            <div class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#updateModal<%= freelancers[i].id %>">
                                                 Update
-                                            </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Update Freelancer Modal-->
+                <div class="portfolio-modal modal fade" id="updateModal<%= freelancers[i].id %>" tabindex="-1" aria-labelledby="portfolioModal" aria-hidden="true">
+                    <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+                            <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                            <div class="modal-body text-center pb-5">
+                                <div class="container">
+                                    <div class="row justify-content-center">
+                                        <div class="col-lg-8">
+                                            <form action="/freelancers/<%= freelancers[i].id %>?_method=PUT" method="POST">
+                                                <!-- Name input-->
+                                                <div class="form-floating mb-3">
+                                                    <input class="form-control" name="fullname" type="text" placeholder="Enter your name..." required/>
+                                                    <label for="fullname">Full Name</label>
+                                                </div>
+                                                <!-- Email address input-->
+                                                <div class="form-floating mb-3">
+                                                    <input class="form-control" name="email" type="text" placeholder="name@example.com" required/>
+                                                    <label for="email">Email</label>
+                                                </div>
+                                                <!-- Phone number input-->
+                                                <div class="form-floating mb-3">
+                                                    <input class="form-control" name="phonenumber" type="text" placeholder="(123) 456-7890" required/>
+                                                    <label for="phonenumber">Phone Number</label>
+                                                </div>
+                                                <!-- Message input-->
+                                                <div class="form-floating mb-3">
+                                                    <textarea class="form-control" name="description" type="text" placeholder="Enter your description here..." style="height: 10rem" required></textarea>
+                                                    <label for="description">Description</label>
+                                                </div>
+                                                <button class="btn btn-primary btn-xl" id="submitButton" type="submit">Update</button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>

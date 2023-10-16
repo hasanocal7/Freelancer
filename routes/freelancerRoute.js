@@ -31,5 +31,6 @@ const upload = multer({
 
 router.post("/", upload.single('image'), freelancerController.createFreelancer);
 router.delete("/:id", freelancerController.deleteFreelancer);
+router.put("/:id", freelancerController.updateFreelancer);
 
 module.exports = router;
