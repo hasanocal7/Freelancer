@@ -1,6 +1,7 @@
 // MODULES
 const express = require('express');
-const cors = require('cors')
+const cors = require('cors');
+const methodOverride = require('method-override');
 
 const db = require('./models');
 const pageRouter = require('./routes/pageRoute');
@@ -17,6 +18,7 @@ app.use(cors())
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(methodOverride('_method'));
 
 // ROUTES
 app.use('/', pageRouter);

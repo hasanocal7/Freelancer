@@ -24,3 +24,9 @@ exports.createFreelancer = async (req, res) => {
         return res.status(500).send('Bir hata oluştu');
       }
 };
+
+exports.deleteFreelancer = (req, res) => {
+  const id = req.params.id
+  Freelancer.destroy({where: {id: id}});
+  res.status(200).redirect('/');
+}
