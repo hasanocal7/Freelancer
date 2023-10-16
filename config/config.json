@@ -1,9 +1,9 @@
 {
   "development": {
     "username": "root",
-    "password": "123456",
+    "password": "123",
     "database": "freelancerdb",
-    "host": "localhost",
+    "host": "mysqlserver",
     "dialect": "mysql"
   }
 }

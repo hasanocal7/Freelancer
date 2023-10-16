@@ -25,7 +25,7 @@ app.use('/', pageRouter);
 app.use('/freelancers', freelancerRouter);
 
 // SERVER UP
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3000;
 db.sequelize.sync().then(() => {
     app.listen(PORT, () => {
         console.log(`Server is Connected Port: ${PORT}`);

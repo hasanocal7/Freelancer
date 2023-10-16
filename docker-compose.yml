@@ -1,0 +1,31 @@
+version: '3.4'
+services:
+  freelancer-app:
+    container_name: Freelancer
+    build: .
+    ports:
+      - 3000:3000
+    depends_on:
+      - mysqlserver
+    volumes:
+      - freelancer-uploads:/public/uploads
+  mysqlserver:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 123
+      MYSQL_DATABASE: agencydb
+    ports:
+      - 3306:3306
+    volumes:
+      - mysql_data:/var/lib/mysql
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      - mysqlserver
+
+volumes:
+  mysql_data:
+  freelancer-uploads:
